@@ -1,0 +1,13 @@
+def list_to_tuple(data):
+    result = []
+    for element in data:
+        if isinstance(element, list):
+            result.append(list_to_tuple(element))   # recursive call
+        else:
+            result.append(element)
+    return tuple(result)
+
+# Example usage
+nested_list = [[1, 2, [3, 4]], [5, 6], [7, [8, 9]]]
+nested_tuple = list_to_tuple(nested_list)
+print(nested_tuple)
